@@ -94,6 +94,7 @@ resource "aws_security_group" "one_tier_public_sg" {
 resource "aws_security_group" "one_tier_alb_sg" {
   name      = "ALB Security Group"
   vpc_id    = aws_vpc.one-tier-vpc.id
+  # Allow HTTP request from the internet
   ingress {
     from_port   = 80
     to_port     = 80
