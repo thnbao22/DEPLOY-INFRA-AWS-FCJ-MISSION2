@@ -6,7 +6,7 @@ resource "aws_vpc" "one-tier-vpc" {
     Name = "vpc-workshop-2"
   }
 }
-
+# Public Subent 1 CIDR 10.10.1.0/24 in AZ ap-southeast-1a
 resource "aws_subnet" "public_subnet_1" {
   vpc_id                    = aws_vpc.one-tier-vpc.id
   availability_zone         = var.availabitity_zones[0]
@@ -16,7 +16,7 @@ resource "aws_subnet" "public_subnet_1" {
     "Name" = "Public Subnet 1"
   }
 }
-
+# Public Subent 2 CIDR 10.10.2.0/24 in AZ ap-southeast-1b
 resource "aws_subnet" "public_subnet_2" {
   vpc_id                    = aws_vpc.one-tier-vpc.id
   availability_zone         = var.availabitity_zones[1]
@@ -26,7 +26,7 @@ resource "aws_subnet" "public_subnet_2" {
     "Name" = "Public Subnet 2"
   }
 }
-
+# Internet Gateway
 resource "aws_internet_gateway" "one_tier_igw" {
   vpc_id = aws_vpc.one-tier-vpc.id
   tags = {
@@ -40,37 +40,39 @@ resource "aws_route_table" "public_rt" {
     "Name" = "Public Route Table"
   }
 }
-
+# Route to the internet
 resource "aws_route" "public_route" {
   route_table_id            = aws_route_table.public_rt.id
   destination_cidr_block    = "0.0.0.0/0"
   gateway_id                = aws_internet_gateway.one_tier_igw.id
 }
-
+# Associate the route table with the public subnet 1
 resource "aws_route_table_association" "one_tier_rt_public_associate_1" {
   route_table_id    = aws_route_table.public_rt.id
   subnet_id         = aws_subnet.public_subnet_1.id
 }
-
+# Associate the route table with the public subnet 2
 resource "aws_route_table_association" "one_tier_rt_public_associate_2" {
   route_table_id    = aws_route_table.public_rt.id
   subnet_id         = aws_subnet.public_subnet_2.id
 }
-
+# Retrieve the local IP address of your local machine
 data "http" "local_ip" {
   url = "https://ipv4.icanhazip.com"
 }
-
+# Security Group for Auto Scaling Group EC2
 resource "aws_security_group" "one_tier_public_sg" {
   name          = "Public Security Group"
   description   = "Allow HTTP and SSH inbound traffic"
   vpc_id        = aws_vpc.one-tier-vpc.id
+  # Allow SSH from your local IP
   ingress {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = [ "${chomp(data.http.local_ip.response_body)}/32" ]
   }
+  # Allow HTTP traffic from the ALB to the Auto Scaling Group
   ingress {
     from_port       = 80
     to_port         = 80
@@ -88,7 +90,7 @@ resource "aws_security_group" "one_tier_public_sg" {
     create_before_destroy = true
   }
 }
-
+# Security Group for Application Load Balancer
 resource "aws_security_group" "one_tier_alb_sg" {
   name      = "ALB Security Group"
   vpc_id    = aws_vpc.one-tier-vpc.id
