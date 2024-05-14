@@ -1,3 +1,4 @@
+# Launch template for Auto Scaling Group
 resource "aws_launch_template" "one_tier_web_server" {
   name                      = "Launch-Template-Web-Server"
   instance_type             = var.instance_type
@@ -10,7 +11,7 @@ resource "aws_launch_template" "one_tier_web_server" {
   }
 }
 
-
+# Auto Scaling Group
 resource "aws_autoscaling_group" "one_tier_web_server" {
   name                      = "ASG-Web-Server"
   min_size                  = 2
@@ -29,6 +30,7 @@ resource "aws_autoscaling_group" "one_tier_web_server" {
   }
 }
 
+# Auto Scaling Policy
 resource "aws_autoscaling_policy" "average_cpu_policy_greater" {
   name                      = "CPUAveragePolicyGreater"
   policy_type               = "TargetTrackingScaling"
