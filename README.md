@@ -37,36 +37,54 @@ Next, You will need to create an **Access keys**. Following these step below to 
 
 1. Click on your AWS account and it will appears a tab. Choose **Security credentials**.
 
-![alt text](images/SetUp1.png)
+![ConnectPrivate](images/SetUp1.png)
 
 2. Scroll down, you will see an **Access keys** interface. Click on **Create access key**.
 
-![alt text](images/SetUp2.png)
+![ConnectPrivate](images/SetUp2.png)
 
 3. In the **Create access key** interface, choose **Third party service**.
 
-![alt text](images/SetUp3.png)
+![ConnectPrivate](images/SetUp3.png)
 
 4. Then, check the square box. Choose **Next**.
 
-![alt text](images/SetUp4.png)
+![ConnectPrivate](images/SetUp4.png)
 
 5. Click on **Create access key** 
 
-![alt text](images/SetUp5.png)
+![ConnectPrivate](images/SetUp5.png)
 
 6. Click on **Download .csv file** and **Done**.
 
-![alt text](images/SetUp6.png)
+![ConnectPrivate](images/SetUp6.png)
 
 7. Open the .csv file. You will see it has an **access key** and a **secret key**.
 
 8. Open the terminal and type `aws configure`. You will see some things appear in the terminal.
 
-![alt text](images/SetUp7.png)
+![ConnectPrivate](images/SetUp7.png)
 
 9. Configure like below:
 - AWS Access Key ID: Assign **your access key**
 - AWS Secret Access Key : Assign **your secret access key**
 - Default region name: Enter `ap-southeast-1`
 - Default output format: Enter `json`
+
+#### Key pair
+
+Here, we need to create a key pair. We can then use this key pair to SSH into our EC2 instances.
+
+About keypair_name, access **AWS Management Console** and search for **EC2** (Remember change your region to **Singapore**) then click on **Key Pairs**.
+
+- Click on **Create key pair**
+
+![ConnectPrivate](images/KeyPairs.png)
+
+Configure like below.
+
+![ConnectPrivate](images/KeyPairs1.png)
+
+After creating key pair successfully, you will see a notification.
+
+![ConnectPrivate](images/KeyPairsEnd.png)
