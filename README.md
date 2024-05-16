@@ -122,3 +122,13 @@ terraform init
 4. Now, we need to validate our configuration. Use the following command in the terminal to do so.
 
 ![ConnectPrivate](images/VSC3.png)
+
+5. Apply the configuration now with the **terraform apply** command.
+
+![ConnectPrivate](images/VSC4.png)
+
+6. Enter `yes` so terraform can provision infrastructure.
+
+![ConnectPrivate](images/VSC5.png)
+
+7. Now, you can follow the workshop to explore more.
