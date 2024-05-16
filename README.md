@@ -90,3 +90,21 @@ After creating key pair successfully, you will see a notification.
 ![ConnectPrivate](images/KeyPairsEnd.png)
 
 # Demo
+
+1. First, clone this repository.
+
+- HTTPS
+
+```
+git clone https://github.com/thnbao22/Demo-WorkshopAWS-Using-Terraform.git
+```
+
+- SSH
+
+```
+git clone git@github.com:thnbao22/Demo-WorkshopAWS-Using-Terraform.git
+```
+
+2. After cloning this repository, please open the project in Visual Studio Code and navigate to the **terraform** folder using the `cd` command on the terminal of Visual Studio Code
+
+![ConnectPrivate](images/VSC.png)
