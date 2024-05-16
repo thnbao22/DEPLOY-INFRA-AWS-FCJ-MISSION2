@@ -1,6 +1,6 @@
 # DEPLOY-INFRA-AWS-FCJ-MISSION2
 
-Tech Stack used in this project: Elastic Load Balancing, Amazon EC2, Auto Scaling Group, Amazon SNS, and Amazon Virtual Private Cloud
+Tech Stack used in this project: Elastic Load Balancing, Amazon EC2, Auto Scaling Group, Amazon SNS, and Amazon Virtual Private Cloud.
 
 ### Architecture
 
@@ -8,6 +8,8 @@ Tech Stack used in this project: Elastic Load Balancing, Amazon EC2, Auto Scalin
 
 ### Overview
 In this lab, we will learn how to deploy a **highly available infrastructure** on AWS using **Terraform**, a popular infrastructure as code tool.
+
+You can explore more at [here](https://thnbao22.github.io/Workshop-AWS-FCJ-Mission2/)
 
 ### Requirements
 
@@ -108,3 +110,15 @@ git clone git@github.com:thnbao22/Demo-WorkshopAWS-Using-Terraform.git
 2. After cloning this repository, please open the project in Visual Studio Code and navigate to the `terraform` folder using the `cd` command on the terminal of Visual Studio Code
 
 ![ConnectPrivate](images/VSC.png)
+
+3. Let's begin by initializing your Terraform workspace. Running the following command in the terminal.
+
+```
+terraform init
+``` 
+
+![ConnectPrivate](images/VSC2.png)
+
+4. Now, we need to validate our configuration. Use the following command in the terminal to do so.
+
+![ConnectPrivate](images/VSC3.png)
