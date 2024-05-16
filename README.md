@@ -105,6 +105,6 @@ git clone https://github.com/thnbao22/Demo-WorkshopAWS-Using-Terraform.git
 git clone git@github.com:thnbao22/Demo-WorkshopAWS-Using-Terraform.git
 ```
 
-2. After cloning this repository, please open the project in Visual Studio Code and navigate to the **terraform** folder using the `cd` command on the terminal of Visual Studio Code
+2. After cloning this repository, please open the project in Visual Studio Code and navigate to the `terraform` folder using the `cd` command on the terminal of Visual Studio Code
 
 ![ConnectPrivate](images/VSC.png)
