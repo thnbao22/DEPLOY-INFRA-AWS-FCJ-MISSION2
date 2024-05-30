@@ -131,4 +131,4 @@ terraform init
 
 ![ConnectPrivate](images/VSC5.png)
 
-7. Now, you can follow the workshop to explore more.
+Now, you can follow the workshop to explore more.
